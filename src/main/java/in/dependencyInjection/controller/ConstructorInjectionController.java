@@ -1,6 +1,7 @@
 package in.dependencyInjection.controller;
 
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import in.dependencyInjection.service.MyService;
@@ -11,7 +12,7 @@ public class ConstructorInjectionController {
 	
 	private final MyService myService;
 	
-	public ConstructorInjectionController(MyService myService) {
+	public ConstructorInjectionController(@Qualifier("smsGreetingService") MyService myService) {
 		System.out.println("in Constructor");
 		this.myService = myService;
 	}
